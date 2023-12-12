@@ -1,5 +1,4 @@
 from PIL import Image
-import imagehash
 import math
 
 img = Image.open("y.png")
@@ -30,15 +29,12 @@ i = 1
 while r <= rows:
   while c <= columns:
     im1 = img.crop((left, top, right, bottom))
-    
+
     hash = im1.tobytes()
-    
-    #print("row: {}, col: {}, hash: {}".format(r, c, hash))
-    
+
     if hash not in hashlist:
       hashlist.append(hash)
       uniqueimglist.append(im1)
-      #im1.save("img/test%s.png" % i)
       i += 1
     c += 1
     left += 8
